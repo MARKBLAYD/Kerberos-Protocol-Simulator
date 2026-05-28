@@ -12,7 +12,7 @@ The system implements the interaction between a Client, an Authentication Server
 *   **Data Format:** JSON (`System.Text.Json`)
 *   **Concurrency:** `System.Threading` (Multi-threaded server execution)
 
-## 🔄 How it Works (Protocol Flow)
+## How it Works (Protocol Flow)
 The application starts the KDC (AS + TGS) and the Service Server in background threads, then initiates the Client. The Client performs the classic Kerberos handshake:
 
 1.  **AS_REQ:** Client sends a request to AS for a Ticket-Granting Ticket (TGT).
@@ -22,24 +22,24 @@ The application starts the KDC (AS + TGS) and the Service Server in background t
 5.  **AP_REQ:** Client sends the Service Ticket and a new Authenticator to the Service Server (SS).
 6.  **AP_REP:** Server confirms identity by returning a timestamp + 1 second (Mutual Authentication).
 
-## 🚀 How to Run
+## How to Run
 To run this project, you need the [.NET SDK](https://dotnet.microsoft.com/download) installed.
 
 1. Clone the repository:
 ```bash
 git clone https://github.com/markblayd/Kerberos-Protocol-Simulator.git
-```
+``
 2. Navigate to the project directory:
-```bash
+``bash
 cd Kerberos-Protocol-Simulator
-```
+``
 3. Build and run the application:
-```bash
+``bash
 dotnet run
-```
+``
 *Note: The `Program.cs` is configured to automatically start the AS, TGS, and SS in background threads, wait 1 second for socket initialization, and then start the Client authentication process. You will see the success logs in the console.*
 
-## 🧠 Challenges & Learnings
+## Challenges & Learnings
 *   **Multi-threaded Architecture:** Simulating a distributed system in a single console app required managing concurrent server nodes using `System.Threading`. Ensuring sockets were bound before the client attempted to connect (`Thread.Sleep`) was a key practical insight.
 *   **Network Communication:** In previous academic projects, data exchange was often simplified via local file I/O. Here, I implemented real-time network communication using **TCP Sockets** (`NetworkStream`) to handle the multi-step handshake.
 *   **Cryptographic Logic:** Implementing the correct sequence of AES encryption/decryption for tickets and authenticators, including secure key derivation (SHA-256) and proper IV handling.
