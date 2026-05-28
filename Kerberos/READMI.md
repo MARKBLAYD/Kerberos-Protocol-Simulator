@@ -4,7 +4,7 @@
 Educational project: Simulation of the Kerberos network authentication protocol. 
 The system implements the interaction between a Client, an Authentication Server (AS), a Ticket Granting Server (TGS), and a Service Server (SS) using TCP Sockets and multi-threading.
 
-## 🛠 Tech Stack
+## Tech Stack
 *   **Language:** C#
 *   **Framework:** .NET (Console Application)
 *   **Networking:** `System.Net.Sockets` (TCP)
