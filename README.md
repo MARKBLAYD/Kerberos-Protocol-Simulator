@@ -1,6 +1,5 @@
 # Kerberos-Protocol-Simulator
 Simulation of Kerberos authentication protocol. Client-Server architecture via TCP Sockets (C# .NET)
-# Kerberos Protocol Simulator
 
 Educational project: Simulation of the Kerberos network authentication protocol. 
 The system implements the interaction between a Client, an Authentication Server (AS), a Ticket Granting Server (TGS), and a Service Server (SS) using TCP Sockets and multi-threading.
